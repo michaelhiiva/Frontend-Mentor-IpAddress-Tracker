@@ -7,31 +7,34 @@ import AppMapSearchResult from './AppMapSearchResult.js';
 import { useEffect, useState } from 'react';
 
 export default function App() {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState(false);
   const [ipaddress, setIpAddress] = useState('1.1.1.1')
 
-
-
   useEffect(() => {
-    fetch(`https://ip-api.com/json/${ipaddress}`)
-      .then((response) => response.json())
-      .then((response_data) => setData(response_data))
-      .catch(error => console.log(error));
-
-  });
-
-  console.log(data);
-  console.log(ipaddress);
+    const fetchData = async () => {
+      const response = await fetch(`http://ip-api.com/json/${ipaddress}`)
+      const response_data = await response.json();
+      setData(response_data);
+    };
+    fetchData();
+  }, [ipaddress]);
 
   return (
     <div>
       <header>
         <h1>IP Address Tracker</h1>
-        <AppSearchBar setIpAddress={setIpAddress}/>
+        <AppSearchBar setIpAddress={setIpAddress} />
       </header>
       <main className="main_container">
-        <AppSearchResultsSummary data={data} />
-        <AppMapSearchResult data={data} />
+      {data ? (
+        <>
+          <AppSearchResultsSummary data_query={data} />
+
+          <AppMapSearchResult data_query_result={data} />
+         </>
+         ) : (
+          <p>Loading...</p>
+         )}
       </main>
     </div>
   );
