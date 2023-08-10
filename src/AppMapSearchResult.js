@@ -11,7 +11,6 @@ function MapResultChildComponent({data_query, zoom}) {
     const map = useMap();
     const center = [data_query.latitude, data_query.longitude]
     map.setView(center, zoom);
-    console.log(map);
     return null;
 }
 
