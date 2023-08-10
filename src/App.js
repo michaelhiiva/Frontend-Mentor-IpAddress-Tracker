@@ -27,14 +27,12 @@ export default function App() {
         <AppSearchBar setIpAddress={setIpAddress} />
       </header>
       <main className="main_container">
-      {data ? (
+      {data && (
         <>
           <AppSearchResultsSummary data_query={data} />
 
           <AppMapSearchResult data_query_result={data} />
          </>
-         ) : (
-          <p>Loading...</p>
          )}
       </main>
     </div>
