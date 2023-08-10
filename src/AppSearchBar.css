@@ -20,7 +20,7 @@
 }
 
 .search_input_field:focus {
-  border-style: none;
+  outline: none;
 }
 
 .search_bar__btn {

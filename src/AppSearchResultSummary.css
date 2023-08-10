@@ -21,6 +21,7 @@ hr {
         flex-direction: row;
         align-items: center;
         width: auto;
+        max-width: 50rem;
     }
 
     .ip_search_result_output section {
