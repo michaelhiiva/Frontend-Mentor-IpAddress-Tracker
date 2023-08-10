@@ -1,0 +1,35 @@
+.ip_search_result_output {
+    position: absolute;
+    top: 25%;
+    display: flex;
+    flex-direction: column;
+    gap: .125rem;
+    padding: 1rem;
+    text-align: center;
+    width: 80%;
+    z-index: 1;
+    background-color: var(--color-white);
+    border-radius: 1rem;
+}
+
+hr {
+    display: none;
+}
+
+@media  only screen and (min-width: 768px) {
+    .ip_search_result_output {
+        flex-direction: row;
+        align-items: center;
+        width: auto;
+    }
+
+    .ip_search_result_output section {
+        display: inline-block;
+    }
+
+    hr {
+        display: inline-block;
+        height: 5rem;
+        margin: 1rem;
+    }
+}

@@ -1,22 +1,22 @@
+import './AppMapSearchResult.css'
 import {
     MapContainer,
-    TileLayer,
     Marker,
-    Popup
+    TileLayer
 } from 'react-leaflet'
 
-export default function AppMapSearchResult() {
+export default function AppMapSearchResult({data}) {
+
     return (
-        <MapContainer id={'ip_address_map'} center={[51.505, -0.09]} zoom={13} scrollWheelZoom={false}>
+        <section className='ip_address_map__section'>
+            <MapContainer id={'ip_address_map'} center={[data.lat, data.lon]} zoom={15} scrollWheelZoom={false}>
             <TileLayer
-                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-            />
-            <Marker position={[51.505, -0.09]}>
-                <Popup>
-                    A pretty CSS3 popup. <br /> Easily customizable.
-                </Popup>
-            </Marker>
-        </MapContainer>
+      attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+      url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+    />
+                <Marker position={[data.lat, data.lon]} >
+                </Marker>
+            </MapContainer>
+        </section>
     );
 }

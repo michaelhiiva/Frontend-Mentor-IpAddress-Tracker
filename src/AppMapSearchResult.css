@@ -1,0 +1,10 @@
+.ip_address_map__section {
+  position: relative;
+  height: 40rem;
+  width: 100%;
+  z-index: 0;
+}
+
+#ip_address_map {
+  height: 100%;
+}
