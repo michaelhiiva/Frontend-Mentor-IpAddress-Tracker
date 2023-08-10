@@ -7,15 +7,21 @@ import AppMapSearchResult from './AppMapSearchResult.js';
 import { useEffect, useState } from 'react';
 
 export default function App() {
-  const [data, setData] = useState();
+  const [data, setData] = useState(null);
   const [ipaddress, setIpAddress] = useState('1.1.1.1')
+
+
 
   useEffect(() => {
     fetch(`https://ip-api.com/json/${ipaddress}`)
       .then((response) => response.json())
       .then((response_data) => setData(response_data))
       .catch(error => console.log(error));
-  }, [data, ipaddress]);
+
+  });
+
+  console.log(data);
+  console.log(ipaddress);
 
   return (
     <div>
