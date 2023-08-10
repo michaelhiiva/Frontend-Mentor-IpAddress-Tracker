@@ -1,5 +1,6 @@
 
 import './App.css';
+import API_KEY from './Config.js'
 import AppSearchBar from './AppSearchBar.js';
 import AppSearchResultsSummary from './AppSearchResultSummary.js';
 import AppMapSearchResult from './AppMapSearchResult.js';
@@ -12,7 +13,7 @@ export default function App() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch(`http://ip-api.com/json/${ipaddress}`)
+      const response = await fetch(`https://api.ipgeolocation.io/ipgeo?apiKey=${API_KEY}&ip=${ipaddress}`)
       const response_data = await response.json();
       setData(response_data);
     };

@@ -9,7 +9,7 @@ import { useMap } from 'react-leaflet/hooks';
 
 function MapResultChildComponent({data_query, zoom}) {
     const map = useMap();
-    const center = [data_query.lat, data_query.lon]
+    const center = [data_query.latitude, data_query.longitude]
     map.setView(center, zoom);
     console.log(map);
     return null;
@@ -20,8 +20,8 @@ export default function AppMapSearchResult({ data_query_result }) {
     const [zoomLevel, setZoomLevel] = useState(13); // Initial zoom level
 
     useEffect(() => {
-        if (data_query_result && data_query_result.lat && data_query_result.lon) {
-            setMapCenter([data_query_result.lat, data_query_result.lon]);
+        if (data_query_result && data_query_result.latitude && data_query_result.longitude) {
+            setMapCenter([data_query_result.latitude, data_query_result.longitude]);
         }
     }, [data_query_result]);
 
